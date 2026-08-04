@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 SHANKAR VIP 4K - Studio 👑</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #030008;
+            --card-bg: rgba(15, 10, 28, 0.75);
+            --gold: #ffd700;
+            --gold-glow: #ffae00;
+            --purple-glow: #a855f7;
+            --cyan-glow: #00f0ff;
+            --text-white: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 50% 0%, rgba(168, 85, 247, 0.22) 0px, transparent 60%),
+                radial-gradient(at 0% 50%, rgba(255, 215, 0, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 240, 255, 0.15) 0px, transparent 50%);
+        }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 16px 8%;
+            background: rgba(3, 0, 8, 0.85); backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25); position: sticky; top: 0; z-index: 100;
+        }
+
+        .vip-brand { display: flex; align-items: center; gap: 12px; }
+        .vip-logo-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid var(--gold); padding: 6px 16px; border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); display: flex; align-items: center; gap: 10px;
+        }
+        .vip-logo-box i { color: var(--gold); font-size: 1.2rem; animation: crownPulse 2s infinite alternate; }
+        .vip-logo-text {
+            font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 900; letter-spacing: 2px;
+            background: linear-gradient(135deg, #fff, var(--gold), var(--cyan-glow));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes crownPulse {
+            0% { transform: scale(1) rotate(-5deg); filter: drop-shadow(0 0 2px var(--gold)); }
+            100% { transform: scale(1.25) rotate(5deg); filter: drop-shadow(0 0 12px var(--gold-glow)); }
+        }
+
+        .vip-status-tag {
+            font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--gold-glow);
+            font-weight: 800; letter-spacing: 1px; background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.4); padding: 6px 14px; border-radius: 30px;
+        }
+
+        .hero { text-align: center; padding: 50px 20px 30px; max-width: 1000px; margin: 0 auto; }
+        
+        .vip-frame-container {
+            display: inline-block; position: relative; padding: 4px; border-radius: 28px;
+            background: linear-gradient(90deg, var(--gold), var(--purple-glow), var(--cyan-glow), var(--gold));
+            background-size: 300% 300%; animation: laserBorder 4s linear infinite;
+            box-shadow: 0 0 45px rgba(168, 85, 247, 0.4); margin-bottom: 25px;
+        }
+
+        @keyframes laserBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        .vip-frame-inner { background: rgba(6, 2, 15, 0.95); padding: 30px 50px; border-radius: 24px; backdrop-filter: blur(20px); position: relative; }
+
+        .vip-top-badge {
+            position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+            background: #030008; border: 1px solid var(--gold); color: var(--gold);
+            padding: 4px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 900;
+            letter-spacing: 3px; font-family: 'Cinzel', serif; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .vip-main-heading {
+            font-family: 'Orbitron', sans-serif; font-size: 3.8rem; font-weight: 900; letter-spacing: 4px;
+            background: linear-gradient(135deg, #ffffff 0%, #ffd700 50%, #a855f7 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3); text-transform: uppercase;
+        }
+
+        .vip-sub-text { color: var(--text-dim); font-size: 0.95rem; letter-spacing: 4px; margin-top: 8px; font-weight: 800; text-transform: uppercase; }
+        .hero p { color: var(--text-dim); font-size: 1.15rem; margin-bottom: 35px; }
+
+        .search-box-wrapper {
+            position: relative; max-width: 680px; margin: 0 auto; display: flex; align-items: center;
+            background: rgba(15, 10, 28, 0.85); border-radius: 50px; border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 6px 8px 6px 25px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); transition: all 0.3s ease;
+        }
+
+        .search-box-wrapper:focus-within { border-color: var(--gold); box-shadow: 0 0 35px rgba(255, 215, 0, 0.5); }
+        .search-box-wrapper i.search-icon { color: var(--gold); font-size: 1.3rem; margin-right: 15px; }
+        .search-box-wrapper input { width: 100%; background: transparent; border: none; outline: none; color: #fff; font-size: 1.05rem; }
+        .search-box-wrapper button {
+            background: linear-gradient(135deg, var(--gold), #d97706); color: #000; border: none;
+            padding: 14px 28px; border-radius: 40px; font-weight: 800; font-size: 0.95rem; cursor: pointer;
+            transition: all 0.3s ease; white-space: nowrap; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .search-box-wrapper button:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(255, 215, 0, 0.7); }
+
+        .categories { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 35px 0 20px; }
+        .cat-pill {
+            background: rgba(20, 15, 38, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-dim);
+            padding: 12px 26px; border-radius: 30px; cursor: pointer; font-size: 0.9rem; font-weight: 700; transition: all 0.3s ease;
+        }
+
+        .cat-pill:hover, .cat-pill.active {
+            background: linear-gradient(135deg, var(--gold), #d97706); color: #000; border-color: transparent;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5); transform: translateY(-2px);
+        }
+
+        .search-status { text-align: center; margin: 20px 0 10px; font-size: 1.1rem; color: var(--gold-glow); font-weight: 700; }
+        .search-status span { color: #fff; text-transform: uppercase; letter-spacing: 1px; font-family: 'Orbitron', sans-serif; border-bottom: 2px solid var(--gold); }
+
+        .container { max-width: 1400px; margin: 20px auto 40px; padding: 0 20px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+
+        .card {
+            background: var(--card-bg); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; display: flex; flex-direction: column;
+        }
+
+        .card:hover { transform: translateY(-12px) scale(1.02); border-color: rgba(255, 215, 0, 0.6); box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(168, 85, 247, 0.3); }
+
+        .img-wrapper { position: relative; width: 100%; height: 320px; overflow: hidden; background: #0d0818; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .card:hover img { transform: scale(1.15); }
+
+        .badge-4k {
+            position: absolute; top: 15px; right: 15px; background: rgba(3, 0, 8, 0.85); border: 1px solid var(--gold);
+            backdrop-filter: blur(8px); color: var(--gold); padding: 4px 12px; border-radius: 10px; font-size: 0.75rem; font-weight: 800; font-family: 'Orbitron', sans-serif;
+        }
+
+        .card-body { padding: 18px; display: flex; justify-content: space-between; align-items: center; background: rgba(8, 4, 18, 0.95); margin-top: auto; }
+        .card-body h3 { font-size: 0.95rem; font-weight: 600; color: var(--text-white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; text-transform: capitalize; }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--gold), #d97706); color: #000; padding: 10px 18px; border-radius: 12px;
+            border: none; font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; gap: 6px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); cursor: pointer;
+        }
+
+        .download-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6); }
+
+        .load-more-container { text-align: center; margin: 40px 0 60px; }
+        .load-more-btn {
+            background: linear-gradient(135deg, var(--purple-glow), var(--gold)); color: #fff; padding: 16px 45px; border: none;
+            border-radius: 50px; font-size: 1.05rem; font-weight: 800; font-family: 'Orbitron', sans-serif; cursor: pointer;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5); transition: all 0.3s ease; letter-spacing: 1px;
+        }
+
+        .load-more-btn:hover { transform: scale(1.08); box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); color: #000; }
+
+        footer { text-align: center; padding: 40px 20px; background: rgba(3, 0, 8, 0.95); border-top: 1px solid rgba(255, 215, 0, 0.2); color: var(--text-dim); font-size: 0.95rem; }
+        footer span { color: var(--gold); font-weight: 800; font-family: 'Orbitron', sans-serif; }
+
+        @media (max-width: 768px) {
+            .vip-main-heading { font-size: 2.2rem; }
+            .vip-frame-inner { padding: 20px 20px; }
+            .gallery { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+            .search-box-wrapper { flex-direction: row; padding: 4px 6px 4px 18px; }
+            .search-box-wrapper button { padding: 12px 18px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="vip-brand">
+            <div class="vip-logo-box">
+                <i class="fa-solid fa-crown"></i>
+                <span class="vip-logo-text">SHANKAR 4K</span>
+            </div>
+        </div>
+        <div class="vip-status-tag">
+            <i class="fa-solid fa-bolt"></i> DIRECT DOWNLOAD ENGINE
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="vip-frame-container">
+            <div class="vip-frame-inner">
+                <div class="vip-top-badge"><i class="fa-solid fa-crown"></i> OFFICIAL STUDIO</div>
+                <div class="vip-main-heading">SHANKAR 4K</div>
+                <div class="vip-sub-text">✨ UNLIMITED LIVE WALLPAPERS ✨</div>
+            </div>
+        </div>
+
+        <p>आप जो भी नाम टाइप करेंगे — बिल्कुल सटीक वही 4K वॉलपेपर्स लोड होंगे!</p>
+
+        <div class="search-box-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" placeholder="टाइप करें: dark, supercar, shiva, cyberpunk..." onkeypress="if(event.key==='Enter') handleSearch()">
+            <button onclick="handleSearch()"><i class="fa-solid fa-bolt"></i> SEARCH</button>
+        </div>
+
+        <div class="categories">
+            <button class="cat-pill active" onclick="quickSearch('dark wallpaper', this)"><i class="fa-solid fa-moon"></i> Dark Theme</button>
+            <button class="cat-pill" onclick="quickSearch('supercar', this)"><i class="fa-solid fa-car"></i> Supercars</button>
+            <button class="cat-pill" onclick="quickSearch('cyberpunk', this)"><i class="fa-solid fa-city"></i> Cyberpunk</button>
+            <button class="cat-pill" onclick="quickSearch('space', this)"><i class="fa-solid fa-rocket"></i> Space</button>
+            <button class="cat-pill" onclick="quickSearch('anime', this)"><i class="fa-solid fa-wand-magic-sparkles"></i> Anime</button>
+            <button class="cat-pill" onclick="quickSearch('shiva', this)"><i class="fa-solid fa-om"></i> Mahadev</button>
+        </div>
+
+        <div class="search-status" id="searchStatus">
+            Showing Results for: <span id="currentSearchTag">DARK WALLPAPER</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="gallery" id="wallpaperGallery">
+            <!-- Dynamic Wallpapers Load Here -->
+        </div>
+    </div>
+
+    <div class="load-more-container">
+        <button class="load-more-btn" onclick="loadMore()">
+            <i class="fa-solid fa-circle-plus"></i> LOAD MORE WALLPAPERS
+        </button>
+    </div>
+
+    <footer>
+        <p>&copy; Designed & Developed by <span>SHANKAR VIP STUDIO</span>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentKeyword = "dark wallpaper";
+        let pageNumber = 1;
+
+        window.onload = () => {
+            fetchWallpapers(currentKeyword, false);
+        };
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if(!query) return alert('कृपया कुछ नाम टाइप करें!');
+            
+            document.querySelectorAll('.cat-pill').forEach(btn => btn.classList.remove('active'));
+            
+            currentKeyword = query;
+            pageNumber = 1;
+            document.getElementById('currentSearchTag').innerText = currentKeyword.toUpperCase();
+            fetchWallpapers(currentKeyword, false);
+        }
+
+        function quickSearch(keyword, btnElement) {
+            document.querySelectorAll('.cat-pill').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            document.getElementById('searchInput').value = keyword;
+            
+            currentKeyword = keyword;
+            pageNumber = 1;
+            document.getElementById('currentSearchTag').innerText = currentKeyword.toUpperCase();
+            fetchWallpapers(currentKeyword, false);
+        }
+
+        function fetchWallpapers(keyword, isAppend = false) {
+            const gallery = document.getElementById('wallpaperGallery');
+            if(!isAppend) gallery.innerHTML = '';
+
+            for(let i = 1; i <= 12; i++) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                const randomId = pageNumber * 50 + i;
+                
+                // 🚀 FIXED: नया वर्किंग सर्च इंजन URL यहाँ लगा दिया है
+                const imgUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(keyword)}%20wallpaper?width=800&height=1200&nologo=true&seed=${randomId}`;
+
+                card.innerHTML = `
+                    <div class="img-wrapper">
+                        <img src="${imgUrl}" alt="${keyword}" loading="lazy">
+                        <span class="badge-4k">VIP 4K</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>${keyword} #${i}</h3>
+                        <button onclick="downloadImage('${imgUrl}', '${keyword}_${i}')" class="download-btn">
+                            <i class="fa-solid fa-download"></i> Get 4K
+                        </button>
+                    </div>
+                `;
+                gallery.appendChild(card);
+            }
+        }
+
+        async function downloadImage(imageSrc, name) {
+            const btn = event.currentTarget;
+            const oldText = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Saving...`;
+
+            try {
+                const response = await fetch(imageSrc);
+                const blob = await response.blob();
+                const blobUrl = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = blobUrl;
+                link.download = `${name}_Wallpaper.jpg`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(blobUrl);
+
+                btn.innerHTML = `<i class="fa-solid fa-check"></i> Saved!`;
+                setTimeout(() => { btn.innerHTML = oldText; }, 2000);
+            } catch (error) {
+                window.open(imageSrc, '_blank');
+                btn.innerHTML = oldText;
+            }
+        }
+
+        function loadMore() {
+            pageNumber++;
+            fetchWallpapers(currentKeyword, true);
+        }
+    </script>
+</body>
+</html>
