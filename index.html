@@ -268,41 +268,31 @@
 
         function fetchWallpapers(keyword, isAppend = false) {
             const gallery = document.getElementById('wallpaperGallery');
-            if(!isAppend) {
-                gallery.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: var(--gold); font-weight: bold;"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><p style="margin-top:10px;">VIP 4K Wallpapers खोजे जा रहे हैं...</p></div>';
-            }
-
-            // 🚀 FAST & DIRECT HIGH-QUALITY SEARCH ENGINE
-            const images = [];
-            for(let i = 1; i <= 12; i++) {
-                const seed = (pageNumber * 12) + i;
-                // LoremFlickr & High Speed Search Engine Integration
-                const mainUrl = `https://loremflickr.com/800/1200/${encodeURIComponent(keyword)}?lock=${seed}`;
-                images.push(mainUrl);
-            }
-
             if(!isAppend) gallery.innerHTML = '';
 
-            images.forEach((imgUrl, index) => {
+            for(let i = 1; i <= 12; i++) {
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                const itemNum = (pageNumber - 1) * 12 + (index + 1);
+                const randomId = pageNumber * 50 + i;
+                
+                // 🚀 FIXED: नया वर्किंग सर्च इंजन URL यहाँ लगा दिया है
+                const imgUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(keyword)}%20wallpaper?width=800&height=1200&nologo=true&seed=${randomId}`;
 
                 card.innerHTML = `
                     <div class="img-wrapper">
-                        <img src="${imgUrl}" alt="${keyword}" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/800/1200?random=${itemNum}';">
+                        <img src="${imgUrl}" alt="${keyword}" loading="lazy">
                         <span class="badge-4k">VIP 4K</span>
                     </div>
                     <div class="card-body">
-                        <h3>${keyword} #${itemNum}</h3>
-                        <button onclick="downloadImage('${imgUrl}', '${keyword}_${itemNum}')" class="download-btn">
+                        <h3>${keyword} #${i}</h3>
+                        <button onclick="downloadImage('${imgUrl}', '${keyword}_${i}')" class="download-btn">
                             <i class="fa-solid fa-download"></i> Get 4K
                         </button>
                     </div>
                 `;
                 gallery.appendChild(card);
-            });
+            }
         }
 
         async function downloadImage(imageSrc, name) {
