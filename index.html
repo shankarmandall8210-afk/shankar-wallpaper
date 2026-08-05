@@ -266,59 +266,111 @@
             fetchWallpapers(currentKeyword, false);
         }
 
-        function fetchWallpapers(keyword, isAppend = false) {
+        // 🚀 नया SUPERFAST लोडिंग इंजन (बिना API Key के)
+        async function fetchWallpapers(keyword, isAppend = false) {
             const gallery = document.getElementById('wallpaperGallery');
-            if(!isAppend) gallery.innerHTML = '';
+            if(!isAppend) {
+                gallery.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: var(--gold); font-weight: bold;"><i class="fa-solid fa-bolt fa-fade fa-2x"></i><p style="margin-top:10px; font-size:1.1rem;">Superfast Engine Loading...</p></div>';
+            }
 
-            for(let i = 1; i <= 12; i++) {
-                const card = document.createElement('div');
-                card.className = 'card';
+            try {
+                // Lexica का फास्ट डेटाबेस इस्तेमाल कर रहे हैं
+                const response = await fetch(`https://lexica.art/api/v1/search?q=${encodeURIComponent(keyword + ' 4k wallpaper')}`);
+                const data = await response.json();
                 
-                const randomId = pageNumber * 50 + i;
-                
-                // 🚀 FIXED: नया वर्किंग सर्च इंजन URL यहाँ लगा दिया है
-                const imgUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(keyword)}%20wallpaper?width=800&height=1200&nologo=true&seed=${randomId}`;
+                if(!isAppend) gallery.innerHTML = '';
 
-                card.innerHTML = `
-                    <div class="img-wrapper">
-                        <img src="${imgUrl}" alt="${keyword}" loading="lazy">
-                        <span class="badge-4k">VIP 4K</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>${keyword} #${i}</h3>
-                        <button onclick="downloadImage('${imgUrl}', '${keyword}_${i}')" class="download-btn">
-                            <i class="fa-solid fa-download"></i> Get 4K
-                        </button>
-                    </div>
-                `;
-                gallery.appendChild(card);
+                // 50 में से 12 फोटो निकालेंगे
+                const startIndex = (pageNumber - 1) * 12;
+                const imagesToDisplay = data.images.slice(startIndex, startIndex + 12);
+
+                if(imagesToDisplay.length === 0) {
+                    gallery.innerHTML += '<p style="grid-column: 1/-1; text-align:center; color: var(--text-dim); font-size:1.2rem;">और वॉलपेपर्स नहीं मिले!</p>';
+                    return;
+                }
+
+                imagesToDisplay.forEach((img, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    
+                    const thumbUrl = img.srcSmall; // ⚡ वेबसाइट पर दिखाने के लिए छोटी फोटो (1 सेकंड में लोड होगी)
+                    const hdUrl = img.src;         // 💎 डाउनलोड करने के लिए 4K ओरिजिनल फोटो
+                    const itemNum = startIndex + index + 1;
+
+                    card.innerHTML = `
+                        <div class="img-wrapper">
+                            <img src="${thumbUrl}" alt="${keyword}" loading="lazy">
+                            <span class="badge-4k">VIP 4K</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>${keyword} #${itemNum}</h3>
+                            <button onclick="downloadImage('${hdUrl}', '${keyword}_${itemNum}')" class="download-btn">
+                                <i class="fa-solid fa-download"></i> Get 4K
+                            </button>
+                        </div>
+                    `;
+                    gallery.appendChild(card);
+                });
+            } catch (error) {
+                // अगर कभी नेटवर्क डाउन हुआ, तो यह बैकअप इंजन तुरंत चालू हो जाएगा (यह भी फास्ट है)
+                if(!isAppend) gallery.innerHTML = '';
+                for(let i = 1; i <= 12; i++) {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    const randomId = pageNumber * 50 + i;
+                    
+                    const thumbUrl = `https://loremflickr.com/400/600/${encodeURIComponent(keyword)}?lock=${randomId}`;
+                    const hdUrl = `https://loremflickr.com/800/1200/${encodeURIComponent(keyword)}?lock=${randomId}`;
+                    
+                    card.innerHTML = `
+                        <div class="img-wrapper">
+                            <img src="${thumbUrl}" alt="${keyword}" loading="lazy">
+                            <span class="badge-4k">VIP 4K</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>${keyword} #${i}</h3>
+                            <button onclick="downloadImage('${hdUrl}', '${keyword}_${i}')" class="download-btn">
+                                <i class="fa-solid fa-download"></i> Get 4K
+                            </button>
+                        </div>
+                    `;
+                    gallery.appendChild(card);
+                }
             }
         }
 
+        // तेरा एकदम सही काम करने वाला डाउनलोड सिस्टम
         async function downloadImage(imageSrc, name) {
             const btn = event.currentTarget;
             const oldText = btn.innerHTML;
             btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Saving...`;
+            btn.style.pointerEvents = 'none';
 
             try {
-                const response = await fetch(imageSrc);
+                const response = await fetch(imageSrc, { cache: "no-store" });
                 const blob = await response.blob();
                 const blobUrl = URL.createObjectURL(blob);
 
                 const link = document.createElement('a');
+                link.style.display = 'none';
                 link.href = blobUrl;
-                link.download = `${name}_Wallpaper.jpg`;
+                link.download = `${name}_VIP_Wallpaper.jpg`;
                 document.body.appendChild(link);
                 link.click();
+                
                 document.body.removeChild(link);
                 URL.revokeObjectURL(blobUrl);
 
-                btn.innerHTML = `<i class="fa-solid fa-check"></i> Saved!`;
-                setTimeout(() => { btn.innerHTML = oldText; }, 2000);
+                btn.innerHTML = `<i class="fa-solid fa-check"></i> Saved in Gallery!`;
             } catch (error) {
                 window.open(imageSrc, '_blank');
                 btn.innerHTML = oldText;
             }
+
+            setTimeout(() => { 
+                btn.innerHTML = oldText; 
+                btn.style.pointerEvents = 'auto';
+            }, 2500);
         }
 
         function loadMore() {
